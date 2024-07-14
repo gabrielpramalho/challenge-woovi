@@ -10,3 +10,12 @@ Using these tools and libraries:
  - zod
  - react-hook-form
  - Radix Ui
+
+
+The three screens are at the links:
+
+ `/`
+
+ `/entrance`
+
+ `/other-parcel`
