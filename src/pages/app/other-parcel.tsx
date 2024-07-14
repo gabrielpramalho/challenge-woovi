@@ -1,7 +1,7 @@
 import { HowItWorks } from "@/components/how-it-works";
 import { Identify } from "@/components/identify";
-import { Input } from "@/components/input";
 import { ParcelItem } from "@/components/parcel-item";
+import { PersonForm } from "@/components/person-form";
 
 export function OtherParcel() {
   return (
@@ -13,69 +13,7 @@ export function OtherParcel() {
           </strong>
         </div>
 
-        <form action="" className="flex flex-col w-full gap-7">
-          <div className="relative flex flex-1">
-            <label 
-              className="absolute bg-white -top-2.5 left-5 text-sm font-semibold text-woovi-text px-0.5"
-              htmlFor="name"
-            >
-              Nome completo
-            </label>
-            <Input id="name" name="name"  />
-          </div>
-          <div className="relative flex flex-1">
-            <label 
-              className="absolute bg-white -top-2.5 left-5 text-sm font-semibold text-woovi-text px-0.5"
-              htmlFor="name"
-            >
-              CPF
-            </label>
-            <Input id="cpf" name="cpf"  />
-          </div>
-          <div className="relative flex flex-1">
-            <label 
-              className="absolute bg-white -top-2.5 left-5 text-sm font-semibold text-woovi-text px-0.5"
-              htmlFor="name"
-            >
-              Número do cartão
-            </label>
-            <Input id="credit-card" name="credit-card"  />
-          </div>
-
-          <div className="flex gap-5">
-            <div className="relative flex flex-1">
-              <label 
-                className="absolute bg-white -top-2.5 left-5 text-sm font-semibold text-woovi-text px-0.5"
-                htmlFor="name"
-              >
-                Vencimento
-              </label>
-              <Input id="credit-card" name="credit-card"  />
-            </div>
-            <div className="relative flex flex-1">
-              <label 
-                className="absolute bg-white -top-2.5 left-5 text-sm font-semibold text-woovi-text px-0.5"
-                htmlFor="name"
-              >
-                CVV
-              </label>
-              <Input id="credit-card" name="credit-card"  />
-            </div>
-          </div>
-
-          <div className="relative flex flex-1">
-            <label 
-              className="absolute bg-white -top-2.5 left-5 text-sm font-semibold text-woovi-text px-0.5"
-              htmlFor="name"
-            >
-              Parcelas
-            </label>
-            <Input id="credit-card" name="credit-card"  />
-          </div>
-
-          <button>Pagar</button>
-          
-        </form>
+        <PersonForm />
 
         <div className='flex flex-col items-center justify-center'>
           <span className='text-woovi-gray font-semibold'>Prazo de pagamento:</span>
