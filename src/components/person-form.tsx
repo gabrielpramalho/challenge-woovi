@@ -1,14 +1,16 @@
 import { z } from "zod";
-// import { Input } from "./input";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Button } from "./button";
+import { Select } from "./select";
+import { SelectItem } from "./select/select-item";
 
 const personFormSchema = z.object({
-  name: z.string().min(4),
-  cpf: z.string().length(14),
-  creditCard: z.string().length(16),
-  valid: z.string().length(5),
-  cvv: z.string().length(3),
+  name: z.string().min(1, { message: 'Por favor, insira seu nome completo' }),
+  cpf: z.string().length(14, { message: 'CPF inválido' }),
+  creditCard: z.string().length(16, { message: 'Por favor, insira o número do cartao de crédito'}),
+  valid: z.string().length(5, { message: 'Data de validade inválido' }),
+  cvv: z.string().length(3, { message: 'CVV inválido' }),
 })
 
 type PersonFormSchema = z.infer<typeof personFormSchema>
@@ -126,16 +128,15 @@ export function PersonForm() {
         >
           Parcelas
         </label>
-        {/* <Input id="credit-card" name="credit-card"  /> */}
-        <input 
-          id="credit-card" 
-          name="credit-card"
-          className="border-2 flex-1 border-woovi-gray-100 rounded-lg h-[65px] text-woovi-text text-lg font-semibold p-5 outline-none max-h-[65px]" 
-        />
+        <Select placeholder="Selecione uma parcela" defaultValue="1">
+          <SelectItem value="1" text="1x de R$ 15.300,00"/> 
+          <SelectItem value="2" text="2x de R$ 7.650,00"/> 
+        </Select>
       </div>
 
-      <button type="submit">Pagar</button>
-      
+      <Button type="submit">
+        Pagar
+      </Button>
     </form>
   )
 }

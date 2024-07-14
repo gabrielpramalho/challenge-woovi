@@ -1,9 +1,22 @@
 import qrcode from '@/assets/qrcode.png'
+import { Button } from '@/components/button'
 import { HowItWorks } from '@/components/how-it-works'
 import { Identify } from '@/components/identify'
 import { ParcelItem } from '@/components/parcel-item'
 
+import copy from '@/assets/copy.svg'
+import { useState } from 'react'
+
 export function Entrance () {
+  const [isCopied, setIsCopied] = useState(false)
+
+  const qrcodeText = "000201 010211 26360014BR.GOV.BCB.PIX01112345678900 52040000 5303986 540410.00 5802BR 5912Fulano de Tal 6007Cidade 62070516Pagamento de Teste 6304"
+
+  function copyToClipBoard() {
+    navigator.clipboard.writeText(qrcodeText)
+    setIsCopied(true)
+  }
+
   return (
     <div>
       <div className="flex flex-col items-center gap-5 px-[18px]">
@@ -17,8 +30,16 @@ export function Entrance () {
           <div className='border-2 rounded-[10px] border-woovi-green p-2.5'>
             <img src={qrcode} alt="QR Code" />
           </div>
-
-          Clique para copiar QR CODE
+          <Button onClick={copyToClipBoard}>
+             Clique para copiar QR CODE
+             <img src={copy} alt="Copy to clipboard" />
+          </Button>
+          {isCopied && (
+            <span className='font-semibold text-sm bg-woovi-green text-white rounded-lg px-5 py-1'>
+              Código copiado com sucesso!
+            </span>
+          )}
+          
         </div>
 
         <div className='flex flex-col items-center justify-center'>
